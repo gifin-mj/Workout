@@ -1,0 +1,93 @@
+<section class="vh-80" >
+  <div class="container h-60">
+    <div class="row d-flex justify-content-center align-items-center h-80">
+      <div class="col-xl-9">
+
+        <h1 class="text-black mb-4">Sign-up</h1>
+            <form action="/signup" method="post" enctype="multipart/form-data">
+        <div class="card" style="border-radius: 10px;">
+          <div class="card-body">
+
+            <div class="row align-items-center pt-2 pb-2">
+              <div class="col-md-3 ps-5">
+
+                <h6 class="mb-0">Username</h6>
+
+              </div>
+              <div class="col-md-9 pe-5">
+
+                <input type="text" required name="name" id="form3Example1cg" placeholder="Name" class="form-control form-control-lg" />
+
+              </div>
+            </div>
+
+            
+
+            <div class="row align-items-center py-2">
+              <div class="col-md-3 ps-5">
+
+                <h6 class="mb-0">Password</h6>
+
+              </div>
+              <div class="col-md-9 pe-5">
+
+                <input type="password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+              title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters"
+                 required name="password" placeholder="Enter Password" id="form3Example4cg" class="form-control form-control-lg" />
+              </div>
+            </div>
+
+           {{#if status}}
+            <p class="text-danger text-center" >Passwords Mismatch</p>
+                {{/if}}
+            <div class="row align-items-center py-2">
+              <div class="col-md-3 ps-5">
+
+                <h6 class="mb-0">Confirm Password</h6>
+
+              </div>
+              <div class="col-md-9 pe-5">
+
+                <input type="password" 
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+              title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters"
+                required name="cpassword" placeholder="Confirm Password" id="form3Example4cdg" class="form-control form-control-lg" />
+
+              </div>
+            </div>
+
+            
+
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+
+                <h6 class="mb-0">Upload Profile Picture</h6>
+
+              </div>
+              <div class="col-md-9 pe-5">
+                <img src="" width="50px" alt="Select Image" height="auto" id="imgview"  />
+                <input required  type="file" name="image" class="form-control" onchange='imageView(event)' id="exampleFormControlFile1" />
+
+              </div>
+            </div>
+
+            
+
+            <div class="px-5 py-2">
+              <button type="submit" class="btn btn-primary btn-lg">Sign-up</button>
+            </div>
+
+          </div>
+        </div>
+</form>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+    function imageView(event){
+
+        document.getElementById('imgview').src=URL.createObjectURL(event.target.files[0])
+    }
+</script>

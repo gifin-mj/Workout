@@ -1,0 +1,39 @@
+
+<section >
+
+<h1 style="text-align: center;">Workout Tracker</h1><br>
+
+<table class="table" style="text-align: center;">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Exersize</th>
+      <th scope="col">Duration/Reps</th>
+      <th scope="col">Calorie Burned</th>
+      <th scope="col">Date</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each workout as |work|}}
+    <tr>
+      <th scope="row">{{#add @index 1 }}{{/add}}</th>
+      <td>{{#each work}}{{exersize}} {{/each}}</td>
+      <td>{{#each work}}{{duration}} {{/each}}</td>
+      <td>{{#each work}}{{calorie}} {{/each}}</td>
+      <td>{{#each work}}  {{wdate}} {{/each}}</td>
+      <td>
+        <a href="/edit/{{#each work}}{{_id}}{{/each}}">
+            <i class="fa-solid fa-pen" title="Edit" ></i>
+        </a>
+        &emsp;
+        <a href="/delete/{{#each work}}{{_id}}{{/each}}" onClick="return confirm('Deleting Data Are you sure? ')">
+            <i class="fa-solid fa-trash-can" title="Delete" ></i>
+        </a>
+      </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>
+
+</section>

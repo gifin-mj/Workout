@@ -1,0 +1,51 @@
+<header class="p-3 mb-3 border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+        
+
+        
+      {{#if user}}
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/" class="btn btn-dark">Home</a></li> &emsp;
+          <li><a href="/workout" class="btn btn-dark">Add Workout</a></li>
+        </ul>
+      <div class="text-end me-4">
+          <a  class="btn btn-outline-dark">
+          {{#if user.name}}
+          {{user.name}}
+          {{else}}
+          {{user.displayName}}
+          {{/if}}</a>
+          <a href="/logout" class="btn btn-outline-dark">Logout</a>
+        </div>
+        <div class="dropdown text-end">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src=
+            {{#if user._id}}
+              '/images/{{user._id}}.jpg'
+            {{else}}
+              {{#each user.photos}}
+              {{this.value}}
+              {{/each}} 
+            {{/if}}
+                      alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="/workout">Add workout</a></li>
+            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          </ul>
+        </div>
+        {{else}}
+         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/" class="btn btn-dark">Home</a></li>
+          
+        </ul>
+        <div class="text-end me-4">
+          <a href="/login" class="btn btn-outline-dark">Login</a>
+          <a href="/signup" class="btn btn-outline-dark">Sign-up</a>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+  </header>

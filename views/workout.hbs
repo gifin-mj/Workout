@@ -1,0 +1,50 @@
+<section style="margin-bottom:10%; width:98% ;">
+    <div class="container mb-10">
+
+        {{#if workout}}
+        <p class="text-center h1 fw-bold mb-4  mx-md-4 mt-4">Edit Data</p>
+        <form action="/update/{{#each workout}}{{_id}}{{/each}}" method="post"enctype="multipart/form-data" >
+        {{else}}
+        <p class="text-center h1 fw-bold mb-4  mx-md-4 mt-4">Add Data</p>
+        <form action="/workout" method="post" enctype="multipart/form-data" >
+        {{/if}}
+            <div class="form-group">
+                
+                <input type="text" required class="form-control mt-3" value="{{#each workout}}{{exersize}}{{/each}}"  name="exersize" placeholder="Exersize" />
+             </div>
+             <div class="form-group">
+
+                <input type="number" required class="form-control mt-3" value="{{#each workout}}{{duration}}{{/each}}" name="duration" placeholder="Duration or repetition" />
+             </div>
+              <div class="form-group">
+              <input type="text" hidden name="userid" 
+              value=
+                    {{#if user.id}}
+                        {{user.id}}
+                    {{else}}
+                        {{user._id}}
+                    {{/if}}
+
+                    />
+                    </div>
+             <div class="form-group">
+                <input type="number" required class="form-control mt-3" value="{{#each workout}}{{calorie}}{{/each}}" name="calorie" placeholder="Calorie Burned" />
+             </div>
+              <div class="form-group">
+
+                <input type="date" required class="form-control mt-3" value="{{#each workout}}{{wdate}}{{/each}}" name="wdate" placeholder="Book Publisher" />
+             </div>
+
+           
+             <div class="row">
+                {{#if workout}}
+                <input type="submit" class="btn btn-dark btn-lg btn-block mt-3 ml-auto"   value="Update Data" />
+                {{else}}
+                <input type="submit" class="btn btn-dark btn-lg btn-block mt-3 ml-auto"   value="Add Data" />
+                {{/if}}
+            </div>
+        </form>
+
+    </div>
+</section>
+
